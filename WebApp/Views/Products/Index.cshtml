@@ -1,0 +1,27 @@
+﻿@model IEnumerable<WebApp.Models.Product.ProductViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Add new sweet", "Create")
+</p>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-3" width="25%" style="margin-bottom: 10px;">
+            <div class="card">
+                <div class="card-body">
+                    <img src="https://retail-loyalty.org/upload/iblock/a9d/31c5dd4208e9833b56ea01d6c744d282.jpg" class="card-img-top"  alt="Alternate Text" />
+                    <h5 class="card-title">@item.Title</h5>
+                    <p class="card-text">@item.TotalPrice KZT</p>
+                    @Html.ActionLink("Купить", "Buy", new { id = item.Id }, new { @class = "btn btn-primary"})
+                </div>
+            </div>
+        </div>
+    }
+</div>
